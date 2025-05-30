@@ -1,23 +1,32 @@
 import React from 'react';
-import OrbBackground from './OrbBackground';
+import Layout from './components/Layout';
+import { motion } from 'framer-motion';
+import Gallery from './components/Gallery';
 
-export default function Layout({ children }) {
+export default function App() {
   return (
-    <div className="bg-black text-gray-300 font-lora min-h-screen overflow-hidden relative">
-      <OrbBackground />
+    <Layout>
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="pt-32 pb-20 px-6 text-center"
+      >
+        <h1 className="font-cinzel text-4xl md:text-6xl leading-tight mb-6 text-white">
+          Cultivate Your Inner Garden
+        </h1>
+        <p className="text-lg md:text-xl text-gray-300 max-w-xl mx-auto">
+          Merangkai offers curated experiences for mindfulness, growth, and self-discovery.
+        </p>
+        <a
+          href="/about"
+          className="inline-block mt-8 px-6 py-3 rounded-full bg-orange-500 text-black font-medium shadow-lg hover:bg-orange-400 transition-transform transform hover:scale-105"
+        >
+          Learn More
+        </a>
+      </motion.section>
 
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800 px-6 py-4">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <h1 className="text-xl md:text-2xl font-medium tracking-tight text-orange-400">Merangkai</h1>
-          <ul className="flex space-x-6 text-sm uppercase tracking-wide">
-            <li><a href="/" className="hover:text-orange-400 transition-colors">Home</a></li>
-            <li><a href="/about" className="hover:text-orange-400 transition-colors">About</a></li>
-          </ul>
-        </div>
-      </nav>
-
-      <main className="relative z-10">{children}</main>
-    </div>
+      <Gallery />
+    </Layout>
   );
 }

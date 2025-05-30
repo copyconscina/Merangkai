@@ -10,3 +10,22 @@
     font-family: 'Cinzel', serif;
   }
 }
+
+/* Custom Animations */
+@keyframes orbMove1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -40px) scale(1.1); }
+}
+
+@keyframes orbMove2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-40px, 40px) scale(1.1); }
+}
+
+.animate-orbMove1 {
+  animation: orbMove1 20s ease-in-out infinite;
+}
+
+.animate-orbMove2 {
+  animation: orbMove2 25s ease-in-out infinite;
+}
