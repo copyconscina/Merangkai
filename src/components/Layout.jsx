@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from './components/Layout.jsx';
+import Gallery from './Gallery';
 import { motion } from 'framer-motion';
 import Gallery from './components/Gallery.jsx';
 
