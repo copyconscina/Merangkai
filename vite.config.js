@@ -1,20 +1,8 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+// vite.config.js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react' // jika kamu pakai React
 
-// https://vitejs.dev/config/ 
 export default defineConfig({
+  base: '/merangkai1/', // WAJIB untuk GitHub Pages
   plugins: [react()],
-  build: {
-    outDir: 'dist',
-    rollupOptions: {
-      input: {
-        main: './index.html',
-        about: './about.html',
-        services: './services.html',
-        cases: './cases.html',
-        team: './team.html',
-        contact: './contact.html'
-      }
-    }
-  }
-});
+})
