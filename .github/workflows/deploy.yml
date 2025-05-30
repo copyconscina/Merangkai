@@ -32,4 +32,8 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: dist
           publish_branch: gh-pages
+<<<<<<< HEAD
           commit_message: ${{ github.event.head_commit.message }}
+=======
+          commit_message: ${{ github.event.head_commit.message }}
+>>>>>>> 861e660ddd77c8387c012f28a3f14c825711a17e
