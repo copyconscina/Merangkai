@@ -13,9 +13,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scroll-parallax": "^3.4.0",
-    "yet-another-react-lightbox": "^3.7.1",
-    "yet-another-react-lightbox/plugins/captions": "^3.7.1",
-    "yet-another-react-lightbox/plugins/thumbnails": "^3.7.1"
+    "yet-another-react-lightbox": "^3.7.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^3.1.0",
