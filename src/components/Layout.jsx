@@ -1,7 +1,9 @@
 import React from 'react';
-import Gallery from './Gallery';
 import { motion } from 'framer-motion';
-import Gallery from './components/Gallery.jsx';
+
+// ✅ Correct relative imports from 'src/components'
+import Layout from './components/Layout';
+import Gallery from './components/Gallery';
 
 export default function App() {
   return (
