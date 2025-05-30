@@ -1,0 +1,55 @@
+import React, { useState } from 'react';
+
+// Import Lightbox and plugins (only import plugins here, no npm install needed)
+import Lightbox from 'yet-another-react-lightbox';
+import Captions from 'yet-another-react-lightbox/plugins/captions';
+import Thumbnails from 'yet-another-react-lightbox/plugins/thumbnails';
+
+// Import styles for Lightbox and plugins
+import 'yet-another-react-lightbox/styles.css';
+import 'yet-another-react-lightbox/plugins/captions.css';
+import 'yet-another-react-lightbox/plugins/thumbnails.css';
+
+const slides = [
+  {
+    src: '/gallery/img1.jpg',
+    title: 'Beautiful Landscape 1',
+  },
+  {
+    src: '/gallery/img2.jpg',
+    title: 'Beautiful Landscape 2',
+  },
+  {
+    src: '/gallery/img3.jpg',
+    title: 'Beautiful Landscape 3',
+  },
+];
+
+export default function Gallery() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="text-center py-10 px-6">
+      <h2 className="text-3xl font-cinzel text-white mb-6">Gallery</h2>
+
+      <div className="flex justify-center gap-4 flex-wrap">
+        {slides.map((slide, index) => (
+          <img
+            key={index}
+            src={slide.src}
+            alt={slide.title}
+            className="w-40 h-40 object-cover cursor-pointer rounded-lg hover:scale-105 transition-transform"
+            onClick={() => setOpen(true)}
+          />
+        ))}
+      </div>
+
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        slides={slides}
+        plugins={[Captions, Thumbnails]}
+      />
+    </div>
+  );
+}
