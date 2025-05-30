@@ -1,0 +1,349 @@
+Great! Here’s the **complete folder structure** and **all code files** you need to build your Merangkai React + Tailwind + Vite project with:
+
+* Rich black background
+* Vibrant orange & deep blue orbs
+* Elegant fonts (`Cinzel` + `Lora`)
+* Scroll animations with Framer Motion
+* Parallax effects with react-scroll-parallax
+* Responsive image gallery with lightbox
+* SVG icons (Lucide)
+* Netlify contact form
+* Multi-page static setup
+
+---
+
+# 📂 Merangkai Project Folder Structure
+
+```
+Merangkai/
+│
+├── public/
+│   ├── gallery/
+│   │   ├── img1.jpg
+│   │   ├── img2.jpg
+│   │   └── img3.jpg
+│   └── vite.svg
+│
+├── src/
+│   ├── components/
+│   │   ├── Gallery.jsx
+│   │   ├── Layout.jsx
+│   │   └── OrbBackground.jsx
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+│
+├── about.html
+├── services.html
+├── cases.html
+├── team.html
+├── contact.html
+├── index.html
+│
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+│
+├── package.json
+├── postcss.config.cjs
+├── tailwind.config.js
+├── vite.config.js
+└── README.md
+```
+
+---
+
+# 📝 Full file contents:
+
+---
+
+### 1. `package.json`
+
+```json
+{
+  "name": "merangkai",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "framer-motion": "^10.12.16",
+    "lucide-react": "^0.276.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scroll-parallax": "^3.4.0",
+    "yet-another-react-lightbox": "^3.7.1",
+    "yet-another-react-lightbox/plugins/captions": "^3.7.1",
+    "yet-another-react-lightbox/plugins/thumbnails": "^3.7.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "vite": "^4.4.5"
+  },
+  "type": "module"
+}
+```
+
+---
+
+### 2. `postcss.config.cjs`
+
+```js
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {}
+  }
+}
+```
+
+---
+
+### 3. `tailwind.config.js`
+
+```js
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./about.html",
+    "./services.html",
+    "./cases.html",
+    "./team.html",
+    "./contact.html",
+    "./src/**/*.{js,jsx}"
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        cinzel: ['Cinzel', 'serif'],
+        lora: ['Lora', 'serif'],
+      },
+      colors: {
+        orange: {
+          400: '#fb923c',
+          500: '#f97316'
+        },
+        blue: {
+          900: '#1e3a8a'
+        }
+      }
+    },
+  },
+  plugins: [],
+}
+```
+
+---
+
+### 4. `vite.config.js`
+
+```js
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    outDir: 'dist',
+    rollupOptions: {
+      input: {
+        main: './index.html',
+        about: './about.html',
+        services: './services.html',
+        cases: './cases.html',
+        team: './team.html',
+        contact: './contact.html'
+      }
+    }
+  }
+});
+```
+
+---
+
+### 5. `.github/workflows/deploy.yml`
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: https://copyconscina.github.io/Merangkai/
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+```
+
+---
+
+### 6. `index.html` (and other html pages: about.html, services.html, cases.html, team.html, contact.html)
+
+All HTML pages have the **same head and script loading**, just the `<title>` changes and the root content is rendered by React.
+
+Example `index.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merangkai - Home</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>
+```
+
+---
+
+### 7. `src/index.css`
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Lora', serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+  }
+}
+
+/* Custom Animations */
+@keyframes orbMove1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -40px) scale(1.1); }
+}
+
+@keyframes orbMove2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-40px, 40px) scale(1.1); }
+}
+
+.animate-orbMove1 {
+  animation: orbMove1 20s ease-in-out infinite;
+}
+
+.animate-orbMove2 {
+  animation: orbMove2 25s ease-in-out infinite;
+}
+```
+
+---
+
+### 8. `src/main.jsx`
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+
+import { ParallaxProvider } from 'react-scroll-parallax';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <ParallaxProvider>
+      <App />
+    </ParallaxProvider>
+  </React.StrictMode>
+);
+```
+
+---
+
+### 9. `src/App.jsx`
+
+```jsx
+import React from 'react';
+import Layout from './components/Layout';
+import { motion } from 'framer-motion';
+import Gallery from './components/Gallery';
+
+export default function App() {
+  return (
+    <Layout>
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="pt-32 pb-20 px-6 text-center"
+      >
+        <h1 className="font-cinzel text-4xl md:text-6xl leading-tight mb-6 text-white">
+          Cultivate Your Inner Garden
+        </h1>
+        <p className="text-lg md:text-xl text-gray-300 max-w-xl mx-auto">
+          Merangkai offers curated experiences for mindfulness, growth, and self-discovery.
+        </p>
+        <a
+          href="/about"
+          className="inline-block mt-8 px-6 py-3 rounded-full bg-orange-500 text-black font-medium shadow-lg hover:bg-orange-400 transition-transform transform hover:scale-105"
+        >
+          Learn More
+        </a>
+      </motion.section>
+
+      <Gallery />
+    </Layout>
+  );
+}
+```
+
+---
+
+### 10. `src/components/Layout.jsx`
+
+```jsx
+import React from 'react';
+import OrbBackground from './OrbBackground';
+import { Instagram, Linkedin } from 'lucide-react';
+
+export default function Layout({ children }) {
+  return (
+    <div className="bg-black text-gray-300 font-lora min-h-screen overflow-hidden relative">
+      <OrbBackground />
+
+      <nav className="fixed top-0 left
+```

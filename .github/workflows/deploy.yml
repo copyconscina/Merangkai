@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: https://copyconscina.github.io/Merangkai/ 
+      url: https://copyconscina.github.io/Merangkai/
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -30,10 +30,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist
+          publish_dir: ./dist
           publish_branch: gh-pages
-<<<<<<< HEAD
-          commit_message: ${{ github.event.head_commit.message }}
-=======
-          commit_message: ${{ github.event.head_commit.message }}
->>>>>>> 861e660ddd77c8387c012f28a3f14c825711a17e
