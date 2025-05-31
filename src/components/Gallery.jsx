@@ -3,9 +3,9 @@ import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 
 const slides = [
-  { src: '/gallery/img1.jpg', title: 'Image 1' },
-  { src: '/gallery/img2.jpg', title: 'Image 2' },
-  { src: '/gallery/img3.jpg', title: 'Image 3' },
+  { src: '/gallery/img1.jpg' },
+  { src: '/gallery/img2.jpg' },
+  { src: '/gallery/img3.jpg' },
 ];
 
 export default function Gallery() {

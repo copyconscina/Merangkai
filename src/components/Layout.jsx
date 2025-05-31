@@ -1,19 +1,19 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Layout({ children }) {
   return (
-    <div className="bg-black text-white min-h-screen font-sans">
-      <header className="p-4 shadow-md">
-        <h1 className="text-2xl font-cinzel">Merangkai</h1>
+    <div className="min-h-screen bg-black text-white font-sans">
+      <header className="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-black bg-opacity-80 z-50">
+        <h1 className="text-xl font-cinzel text-orange-400">Merangkai</h1>
+        <nav className="space-x-4">
+          <Link to="/" className="hover:text-orange-400">Home</Link>
+          <Link to="/about" className="hover:text-orange-400">About</Link>
+          <Link to="/services" className="hover:text-orange-400">Services</Link>
+          <Link to="/gallery" className="hover:text-orange-400">Gallery</Link>
+          <Link to="/contact" className="hover:text-orange-400">Contact</Link>
+        </nav>
       </header>
-
-      <main className="p-4">
-        {children}
-      </main>
-
-      <footer className="p-4 text-center text-sm text-gray-400">
-        &copy; {new Date().getFullYear()} Merangkai. All rights reserved.
-      </footer>
+      <main className="pt-28">{children}</main>
     </div>
   );
 }
