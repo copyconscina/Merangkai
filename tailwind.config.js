@@ -3,10 +3,8 @@ export default {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      animation: {
-        'float-slow': 'float 18s ease-in-out infinite',
-        'float-medium': 'float 12s ease-in-out infinite',
-        'float-fast': 'float 8s ease-in-out infinite',
+      fontFamily: {
+        serif: ['Cinzel', 'serif'], // Ensure Cinzel is already configured
       },
       keyframes: {
         float: {
