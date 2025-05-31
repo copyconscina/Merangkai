@@ -1,4 +1,5 @@
 // tailwind.config.js
+/** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -6,10 +7,13 @@ export default {
       fontFamily: {
         serif: ['Cinzel', 'serif'], // Ensure Cinzel is already configured
       },
+      animation: {
+        pulse: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0) translateX(0)' },
-          '50%': { transform: 'translateY(-30px) translateX(20px)' },
+        pulse: {
+          '0%, 100%': { opacity: 0.3 },
+          '50%': { opacity: 0.7 },
         },
       },
     },
