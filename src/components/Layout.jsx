@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import OrbBackground from './components/OrbBackground';
+import OrbBackground from './OrbBackground.jsx';
 
 export default function Layout({ children }) {
   return (
