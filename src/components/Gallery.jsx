@@ -4,9 +4,9 @@ import Lightbox from 'yet-another-react-lightbox';
 import Captions from 'yet-another-react-lightbox/plugins/captions';
 
 const slides = [
-  { src: '/images/1.jpg', title: 'Sunset Moments' },
-  { src: '/images/2.jpg', title: 'Nature Escape' },
-  { src: '/images/3.jpg', title: 'Mindful Walk' },
+  { src: '/images/1.png', title: 'Sunset Moments' },
+  { src: '/images/2.png', title: 'Nature Escape' },
+  { src: '/images/3.png', title: 'Mindful Walk' },
 ];
 
 const Gallery = () => {
