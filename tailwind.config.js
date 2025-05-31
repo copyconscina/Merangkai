@@ -1,4 +1,12 @@
-animation: {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    extend: {
+      fontFamily: {
+        serif: ['Cinzel', 'serif'],
+      },
+      animation: {
   move1: 'move1 30s ease-in-out infinite',
   move2: 'move2 35s ease-in-out infinite',
   move3: 'move3 40s ease-in-out infinite',
@@ -17,3 +25,8 @@ keyframes: {
     '50%': { transform: 'translate(200px, 100px)' },
   },
 }
+
+    },
+  },
+  plugins: [],
+};
