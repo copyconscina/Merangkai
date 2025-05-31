@@ -2,7 +2,7 @@
 import React from 'react';
 import Layout from '../components/Layout';
 
-const Services: React.FC = () => {
+const Services = () => {
   const services = [
     {
       title: "Mindful Experiences",
