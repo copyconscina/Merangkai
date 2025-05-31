@@ -1,4 +1,4 @@
-// src/components/Layout.jsx - DEFINITIVE COMPLETE LAYOUT
+// src/components/Layout.jsx - DEFINITIVE COMPLETE LAYOUT (with fixed main tag)
 
 import React from 'react';
 import { Link } from 'react-router-dom'; // Make sure this import is here
@@ -36,7 +36,7 @@ const Layout = ({ children }) => {
       {/* START: Main Content Area */}
       {/* pt-28 ensures content starts below your fixed header height */}
       <main className="pt-28">
-        {children} {/* This is where your individual page content renders */}
+        {children} {/* <--- THIS IS THE MISSING PIECE YOU NEED TO ADD! */}
       </main>
       {/* END: Main Content Area */}
     </div>
