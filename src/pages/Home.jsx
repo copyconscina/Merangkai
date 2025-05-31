@@ -1,24 +1,33 @@
+// src/pages/Home.jsx
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
-export default function Home() {
+const Home = () => {
   return (
     <motion.section
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
-      className="pt-32 pb-20 px-6 text-center"
+      className="container mx-auto px-4 py-20 text-center min-h-[calc(100vh-100px)] flex flex-col justify-center"
     >
-      <h1 className="font-cinzel text-4xl md:text-6xl mb-6 text-white">Cultivate Your Inner Garden</h1>
-      <p className="text-lg text-gray-300 max-w-xl mx-auto">
-        Merangkai offers curated experiences for mindfulness, growth, and self-discovery.
+      <h1 className="text-6xl md:text-8xl font-serif text-orange-400 mb-8 tracking-tight">
+        Merangkai
+      </h1>
+      <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+        Cultivating inner peace and connection through mindful living and curated experiences.
       </p>
-      <Link
-        to="/about"
-        className="inline-block mt-8 px-6 py-3 rounded-full bg-orange-500 text-black font-medium shadow-lg hover:bg-orange-400 transition"
+      <motion.a
+        href="/about"
+        className="mt-12 inline-block bg-blue-500 text-white font-bold py-4 px-8 rounded-full shadow-lg
+                   hover:bg-blue-600 transition-colors duration-300 transform hover:scale-105"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1, duration: 0.5 }}
       >
-        Learn More
-      </Link>
+        Explore Your Journey
+      </motion.a>
     </motion.section>
   );
-}
+};
+
+export default Home;
