@@ -11,25 +11,17 @@ export default {
   ],
   theme: {
     extend: {
-       keyframes: {
-      move1: {
-        '0%, 100%': { transform: 'translate(0, 0)' },
-        '50%': { transform: 'translate(50px, -30px)' },
+       animation: {
+        'float-slow': 'float 12s ease-in-out infinite',
+        'float-medium': 'float 8s ease-in-out infinite',
+        'float-fast': 'float 6s ease-in-out infinite',
       },
-      move2: {
-        '0%, 100%': { transform: 'translate(0, 0)' },
-        '50%': { transform: 'translate(-60px, 40px)' },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0) translateX(0)' },
+          '50%': { transform: 'translateY(-20px) translateX(10px)' },
+        },
       },
-      move3: {
-        '0%, 100%': { transform: 'translate(0, 0)' },
-        '50%': { transform: 'translate(30px, -60px)' },
-      },
-    },
-    animation: {
-      move1: 'move1 10s ease-in-out infinite',
-      move2: 'move2 12s ease-in-out infinite',
-      move3: 'move3 15s ease-in-out infinite',
-    },
     },
   },
   plugins: [],
