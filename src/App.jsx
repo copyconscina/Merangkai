@@ -8,12 +8,6 @@ import Home from './pages/Home';
 function App() {
   return (
     <Router>
-      {/* TEMPORARY TAILWIND TEST DIV - Add this */}
-      <div className="bg-red-500 text-white p-4 text-center font-bold text-3xl">
-        TAILWIND TEST
-      </div>
-      {/* END TEMPORARY TAILWIND TEST DIV */}
-
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
