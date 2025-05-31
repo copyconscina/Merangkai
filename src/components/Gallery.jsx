@@ -1,28 +1,25 @@
-'use client'; 
-
 import React from 'react';
-import 'yet-another-react-lightbox/styles.css';
-import Lightbox from 'yet-another-react-lightbox';
-import Captions from 'yet-another-react-lightbox/plugins/captions';
 
-const slides = [
-  { src: '/images/1.png', title: 'Sunset Moments' },
-  { src: '/images/2.png', title: 'Nature Escape' },
-  { src: '/images/3.png', title: 'Mindful Walk' },
-];
+export default function CustomGallery() {
+  const images = [
+    { src: '/images/1.png', alt: 'Image 1' },
+    { src: '/images/2.png', alt: 'Image 2' },
+    { src: '/images/3.png', alt: 'Image 3' },
+  ];
 
-const Gallery = () => {
   return (
-    <div className="max-w-4xl mx-auto py-16 px-6">
-      <h2 className="text-3xl font-cinzel text-center mb-8 text-white">Gallery</h2>
-      <Lightbox
-        slides={slides}
-        open
-        plugins={[Captions]}
-        captions={{ descriptionTextAlign: 'center' }}
-      />
-    </div>
+    <section className="py-24 px-6 bg-black text-white">
+      <h2 className="text-3xl font-bold mb-6">Gallery</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image.src}
+            alt={image.alt}
+            className="rounded-lg shadow-lg"
+          />
+        ))}
+      </div>
+    </section>
   );
-};
-
-export default Gallery;
+}
