@@ -1,30 +1,26 @@
 // src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async'; // Import HelmetProvider
-
-import Layout from './components/Layout';
+import Layout from './components/Layout'; // Your Layout import
 import Home from './pages/Home';
-import About from './pages/About';
-import Services from './pages/Services';
-import Gallery from './pages/Gallery';
-import Contact from './pages/Contact';
+// ... other page imports ...
 
 function App() {
   return (
-    <HelmetProvider> {/* Wrap your Router with HelmetProvider */}
-      <Router>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </Layout>
-      </Router>
-    </HelmetProvider>
+    <Router>
+      {/* TEMPORARY TAILWIND TEST DIV - Add this */}
+      <div className="bg-red-500 text-white p-4 text-center font-bold text-3xl">
+        TAILWIND TEST
+      </div>
+      {/* END TEMPORARY TAILWIND TEST DIV */}
+
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* ... other routes ... */}
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 
