@@ -11,19 +11,25 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        cinzel: ['Cinzel', 'serif'],
-        lora: ['Lora', 'serif'],
+       keyframes: {
+      move1: {
+        '0%, 100%': { transform: 'translate(0, 0)' },
+        '50%': { transform: 'translate(50px, -30px)' },
       },
-      colors: {
-        orange: {
-          400: '#fb923c',
-          500: '#f97316'
-        },
-        blue: {
-          900: '#1e3a8a'
-        }
-      }
+      move2: {
+        '0%, 100%': { transform: 'translate(0, 0)' },
+        '50%': { transform: 'translate(-60px, 40px)' },
+      },
+      move3: {
+        '0%, 100%': { transform: 'translate(0, 0)' },
+        '50%': { transform: 'translate(30px, -60px)' },
+      },
+    },
+    animation: {
+      move1: 'move1 10s ease-in-out infinite',
+      move2: 'move2 12s ease-in-out infinite',
+      move3: 'move3 15s ease-in-out infinite',
+    },
     },
   },
   plugins: [],
