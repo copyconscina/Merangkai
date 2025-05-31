@@ -1,31 +1,26 @@
-import React, { useState } from 'react';
-import Lightbox from 'yet-another-react-lightbox';
+import React from 'react';
 import 'yet-another-react-lightbox/styles.css';
+import Lightbox from 'yet-another-react-lightbox';
+import Captions from 'yet-another-react-lightbox/plugins/captions';
 
 const slides = [
-  { src: '/gallery/img1.jpg' },
-  { src: '/gallery/img2.jpg' },
-  { src: '/gallery/img3.jpg' },
+  { src: '/images/1.jpg', title: 'Sunset Moments' },
+  { src: '/images/2.jpg', title: 'Nature Escape' },
+  { src: '/images/3.jpg', title: 'Mindful Walk' },
 ];
 
-export default function Gallery() {
-  const [open, setOpen] = useState(false);
-
+const Gallery = () => {
   return (
-    <div className="text-center py-10 px-6">
-      <h2 className="text-3xl font-cinzel text-white mb-6">Gallery</h2>
-      <div className="flex justify-center gap-4 flex-wrap">
-        {slides.map((slide, i) => (
-          <img
-            key={i}
-            src={slide.src}
-            alt={slide.title}
-            className="w-40 h-40 object-cover cursor-pointer rounded-lg hover:scale-105 transition-transform"
-            onClick={() => setOpen(true)}
-          />
-        ))}
-      </div>
-      <Lightbox open={open} close={() => setOpen(false)} slides={slides} />
+    <div className="max-w-4xl mx-auto py-16 px-6">
+      <h2 className="text-3xl font-cinzel text-center mb-8 text-white">Gallery</h2>
+      <Lightbox
+        slides={slides}
+        open
+        plugins={[Captions]}
+        captions={{ descriptionTextAlign: 'center' }}
+      />
     </div>
   );
-}
+};
+
+export default Gallery;
