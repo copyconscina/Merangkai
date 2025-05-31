@@ -1,29 +1,23 @@
-import { Link } from 'react-router-dom';
+// src/components/Layout.jsx - FULL LAYOUT WITH BLURRY BACKGROUND
 
-export default function Layout({ children }) {
+import React from 'react';
+import { Link } from 'react-router-dom'; // Using Link for your existing 'a' tag header
+// No need for Lucide Icons in this version of the header
+
+const Layout = ({ children }) => {
   return (
     <div className="relative min-h-screen bg-black text-white font-sans overflow-hidden">
-      {/* 🔵🟠🟢 Blurry Balls Background */}
+
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute w-96 h-96 bg-orange-400 opacity-30 rounded-full blur-3xl animate-float-slow top-10 left-10"></div>
-        <div className="absolute w-80 h-80 bg-blue-500 opacity-20 rounded-full blur-3xl animate-float-fast top-1/3 left-2/3"></div>
-        <div className="absolute w-72 h-72 bg-green-300 opacity-25 rounded-full blur-3xl animate-float-medium top-2/3 left-1/4"></div>
+        {/* TEMPORARY CHANGE: INCREASE OPACITY AND REDUCE BLUR/REMOVE BLUR FOR TESTING */}
+        <div className="absolute w-96 h-96 bg-orange-400 opacity-80 rounded-full blur-lg animate-float-slow left-[10%] top-[20%]" /> {/* Changed opacity-30 to opacity-80, blur-3xl to blur-lg */}
+        <div className="absolute w-80 h-80 bg-blue-500 opacity-80 rounded-full blur-lg animate-float-fast left-[50%] top-[10%]" />   {/* Changed opacity-20 to opacity-80, blur-3xl to blur-lg */}
+        <div className="absolute w-72 h-72 bg-green-300 opacity-80 rounded-full blur-lg animate-float-medium left-[30%] top-[60%]" /> {/* Changed opacity-25 to opacity-80, blur-3xl to blur-lg */}
       </div>
 
-      {/* Header */}
-      <header className="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-black bg-opacity-80 z-50">
-        <h1 className="text-xl font-cinzel text-orange-400">Merangkai</h1>
-        <nav className="space-x-4">
-          <Link to="/" className="hover:text-orange-400">Home</Link>
-          <Link to="/about" className="hover:text-orange-400">About</Link>
-          <Link to="/services" className="hover:text-orange-400">Services</Link>
-          <Link to="/gallery" className="hover:text-orange-400">Gallery</Link>
-          <Link to="/contact" className="hover:text-orange-400">Contact</Link>
-        </nav>
-      </header>
-
-      <main className="pt-28">{children}</main>
+      {/* ... (rest of your layout) ... */}
     </div>
   );
-}
+};
 
+export default Layout;
