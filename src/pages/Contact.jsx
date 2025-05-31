@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../components/Layout';
 
-const Contact: React.FC = () => {
+const Contact = () => {
   return (
     <Layout>
       <section className="py-24 px-6 bg-black">
