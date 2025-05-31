@@ -2,13 +2,16 @@ import { Link } from 'react-router-dom';
 
 export default function Layout({ children }) {
   return (
-    <div className="relative overflow-hidden min-h-screen bg-black text-white font-sans">
-      {/* Blurry Background Balls */}
-      <div className="absolute w-[400px] h-[400px] bg-orange-500 rounded-full blur-3xl opacity-30 animate-move1 z-0" style={{ top: '-100px', left: '-100px' }} />
-      <div className="absolute w-[400px] h-[400px] bg-blue-500 rounded-full blur-3xl opacity-30 animate-move2 z-0" style={{ bottom: '-100px', right: '-100px' }} />
-      <div className="absolute w-[300px] h-[300px] bg-green-300 rounded-full blur-3xl opacity-20 animate-move3 z-0" style={{ top: '50%', left: '30%' }} />
+    <div className="relative min-h-screen bg-black text-white font-sans overflow-hidden">
+      
+      {/* 🔵🟠🟢 Background Blurry Balls */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute w-96 h-96 bg-orange-400 opacity-30 rounded-full blur-3xl animate-float-slow top-10 left-10"></div>
+        <div className="absolute w-80 h-80 bg-blue-500 opacity-25 rounded-full blur-3xl animate-float-fast top-1/3 left-2/3"></div>
+        <div className="absolute w-72 h-72 bg-green-300 opacity-20 rounded-full blur-3xl animate-float-medium top-2/3 left-1/4"></div>
+      </div>
 
-      {/* Navbar/Header */}
+      {/* Header */}
       <header className="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-black bg-opacity-80 z-50">
         <h1 className="text-xl font-cinzel text-orange-400">Merangkai</h1>
         <nav className="space-x-4">
@@ -20,10 +23,7 @@ export default function Layout({ children }) {
         </nav>
       </header>
 
-      {/* Page Content */}
-      <main className="relative z-10 pt-28">
-        {children}
-      </main>
+      <main className="pt-28">{children}</main>
     </div>
   );
 }
