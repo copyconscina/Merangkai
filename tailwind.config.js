@@ -8,12 +8,18 @@ export default {
         serif: ['Cinzel', 'serif'], // Ensure Cinzel is already configured
       },
       animation: {
-        pulse: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        // Add these specific animation definitions for your orbs
+        'float-slow': 'float 12s ease-in-out infinite',
+        'float-medium': 'float 10s ease-in-out infinite',
+        'float-fast': 'float 8s ease-in-out infinite',
       },
       keyframes: {
-        pulse: {
-          '0%, 100%': { opacity: 0.3 },
-          '50%': { opacity: 0.7 },
+        // Add these keyframes that define the 'float' movement
+        float: {
+          '0%, 100%': { transform: 'translateY(0) translateX(0)' },
+          '25%': { transform: 'translateY(-10px) translateX(10px)' },
+          '50%': { transform: 'translateY(10px) translateX(-10px)' },
+          '75%': { transform: 'translateY(-5px) translateX(5px)' },
         },
       },
     },
