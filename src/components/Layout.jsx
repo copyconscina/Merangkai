@@ -8,7 +8,7 @@ export default function Layout({ children }) {
       <OrbBackground />
 
       {/* Header */}
-      <header className="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-black bg-opacity-90 z-50 backdrop-blur-md">
+      <header className="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-black bg-opacity-60 z-50 backdrop-blur-md">
         <h1 className="text-xl font-cinzel text-orange-400">Merangkai</h1>
         <nav className="space-x-4">
           <Link to="/" className="hover:text-orange-400">Home</Link>
@@ -20,7 +20,7 @@ export default function Layout({ children }) {
       </header>
 
       {/* Main content with 90% opacity */}
-      <main className="pt-28 relative z-10 bg-black bg-opacity-90 backdrop-blur-sm">
+      <main className="pt-28 relative z-10 bg-black bg-opacity-60 backdrop-blur-sm">
         {children}
       </main>
     </div>
