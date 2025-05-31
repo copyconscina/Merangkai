@@ -1,14 +1,13 @@
 import { Link } from 'react-router-dom';
-import BlurryBalls from './BlurryBalls'; // pastikan path-nya sesuai
+import OrbBackground from './components/OrbBackground';
 
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen bg-black text-white font-sans relative overflow-hidden">
-      
-      {/* ✅ Ini background bola blur */}
-      <BlurryBalls />
+    <div className="relative min-h-screen bg-black text-white font-sans overflow-hidden">
+      {/* Background orb balls dengan opacity 10% */}
+      <OrbBackground opacity={0.1} />
 
-      <header className="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-black bg-opacity-80 z-50">
+      <header className="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-black bg-opacity-90 z-50">
         <h1 className="text-xl font-cinzel text-orange-400">Merangkai</h1>
         <nav className="space-x-4">
           <Link to="/" className="hover:text-orange-400">Home</Link>
@@ -19,7 +18,9 @@ export default function Layout({ children }) {
         </nav>
       </header>
 
-      <main className="pt-28">{children}</main>
+      <main className="pt-28 relative z-10">
+        {children}
+      </main>
     </div>
   );
 }

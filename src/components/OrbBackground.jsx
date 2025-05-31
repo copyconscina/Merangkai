@@ -1,31 +1,27 @@
 import React from 'react';
 
-export default function OrbBackground() {
+export default function OrbBackground({ opacity = 0.1 }) {
+  // ubah angka opacity untuk blur ball supaya bisa dikontrol dari luar
+  // misal 0.1 = 10% opacity = transparansi 90%
+  const styleOpacity = opacity;
+
   return (
-    <>
-      <div className="fixed top-1/4 left-1/4 w-96 h-96 bg-orange-500 rounded-full blur-3xl opacity-20 animate-orbMove1 z-0"></div>
-      <div className="fixed bottom-1/4 right-1/4 w-80 h-80 bg-blue-900 rounded-full blur-3xl opacity-20 animate-orbMove2 z-0"></div>
-
-      <style jsx>{`
-        @keyframes orbMove1 {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(40px, -40px) scale(1.1); }
-        }
-
-        @keyframes orbMove2 {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(-40px, 40px) scale(1.1); }
-        }
-
-        .animate-orbMove1 {
-          animation: orbMove1 20s ease-in-out infinite;
-        }
-
-        .animate-orbMove2 {
-          animation: orbMove2 25s ease-in-out infinite;
-        }
-      `}</style>
-    </>
+    <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
+      {/* Orange ball */}
+      <div
+        className="absolute w-[300px] h-[300px] rounded-full blur-3xl bg-orange-400 animate-move1"
+        style={{ top: '10%', left: '15%', opacity: styleOpacity }}
+      />
+      {/* Blue ball */}
+      <div
+        className="absolute w-[300px] h-[300px] rounded-full blur-3xl bg-blue-500 animate-move2"
+        style={{ top: '50%', left: '40%', opacity: styleOpacity }}
+      />
+      {/* Green ball */}
+      <div
+        className="absolute w-[300px] h-[300px] rounded-full blur-3xl bg-green-400 animate-move3"
+        style={{ top: '20%', left: '70%', opacity: styleOpacity }}
+      />
+    </div>
   );
-
 }
